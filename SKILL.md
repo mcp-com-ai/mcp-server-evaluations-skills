@@ -22,7 +22,7 @@ Systematically evaluate MCP servers to ensure they function correctly, handle er
    curl -s http://localhost:3030/health
    # Expected: 200 OK
    
-   curl -s -X POST http://localhost:3030/mcp/ping \
+   curl -s -X POST http://localhost:3030/mcp \
      -H "Content-Type: application/json" \
      -d '{"jsonrpc":"2.0","id":1,"method":"ping"}'
    # Expected: {"jsonrpc":"2.0","id":1,"result":{}}
@@ -132,7 +132,7 @@ Run this minimal check for fast validation:
 curl -s http://localhost:3030/health | grep -q "" && echo "✓ Health OK" || echo "✗ Health FAILED"
 
 # 2. MCP ping
-curl -s -X POST http://localhost:3030/mcp/ping \
+curl -s -X POST http://localhost:3030/mcp \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"ping"}' | jq -e '.jsonrpc == "2.0" and .result' > /dev/null && echo "✓ Ping OK" || echo "✗ Ping FAILED"
 
@@ -172,7 +172,7 @@ For detailed documentation:
 ```bash
 # 1. Run health checks
 curl -s http://localhost:3030/health
-curl -s -X POST http://localhost:3030/mcp/ping \
+curl -s -X POST http://localhost:3030/mcp \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"ping"}' | jq -e '.jsonrpc == "2.0" and .result' > /dev/null && echo "✓ Ping OK" || echo "✗ Ping FAILED"
 

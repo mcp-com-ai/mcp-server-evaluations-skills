@@ -11,7 +11,6 @@ set -euo pipefail
 MCP_ENDPOINT="${1:-http://localhost:3030}"
 MCP_PATH="${MCP_ENDPOINT}/mcp"
 HEALTH_PATH="${MCP_ENDPOINT}/health"
-PING_PATH="${MCP_PATH}/ping"
 
 # Colors for output
 RED='\033[0;31m'
@@ -75,13 +74,13 @@ test_health() {
 }
 
 test_ping() {
-    log_info "Testing MCP ping (POST): ${PING_PATH}"
+    log_info "Testing MCP ping (POST): ${MCP_PATH}"
 
     local response
     local ping_id
     ping_id=$((RANDOM + 1000))
 
-    response=$(curl -s -X POST "${PING_PATH}" \
+    response=$(curl -s -X POST "${MCP_PATH}" \
         -H "Content-Type: application/json" \
         -d "{\"jsonrpc\":\"2.0\",\"id\":\"${ping_id}\",\"method\":\"ping\"}" 2>/dev/null)
 
