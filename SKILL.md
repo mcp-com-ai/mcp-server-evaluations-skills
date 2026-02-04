@@ -1,6 +1,6 @@
 ---
 name: mcp-server-evaluations
-description: Evaluate MCP servers for quality and reliability. Verify tool functionality, test error handling, generate tests, and assess response quality with no dependencies other than curl. Use this when validating MCP server implementations, testing OpenAPI-to-MCP conversions, or assessing API tool quality.
+description: Test MCP servers for quality and reliability. Verify tool functionality, test error handling, generate tests, and assess response quality with no dependencies other than curl. Use this when validating MCP server implementations, testing OpenAPI-to-MCP conversions, or assessing API tool quality.
 license: MIT
 compatibility: Requires curl, jq, bun or node v22+
 metadata:
